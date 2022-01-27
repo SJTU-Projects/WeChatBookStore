@@ -1,0 +1,21 @@
+<view>
+  <view class="wrapper">
+      <view style="display:flex;justify-content:center;align-items:center;height:20rem">
+        <image  mode='aspectFit' src="{{book.image}}" /> 
+      </view>
+      <view style="width:9rem height:12rem;text-align:center">
+        <text>书名：{{book.name}}\n</text>
+        <text>单价：{{book.price}}元 \n</text>
+        <text>简介：{{book.detail}}\n</text>
+      </view>
+      <view style="height:150rpx;"></view>
+      <view style="width:10rem">
+      <van-goods-action fixed = "true" safe-area-inset-bottom="true">
+        <van-goods-action-icon icon="chat-o" style="width:3rem" text="客服" bind:click="onClickIcon"/>
+        <van-goods-action-icon icon="cart-o" style="width:3rem" text="购物车" bind:click="onClickIcon"/>
+        <van-goods-action-button text="加入购物车" style="width:2rem" type="warning" bind:click="onClickButton"/>
+        <van-goods-action-button type="danger" style="width:2rem" text="立即购买" bind:click="onClickButton"/>
+      </van-goods-action>
+      </view>
+  </view>
+</view>

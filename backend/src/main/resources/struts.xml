@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- 配置内容搜了些教程...最关键的操作是最后一步扫描action所在的web包 -->
+<struts>
+    <!-- 表示从cn包下开始扫描 -->
+    <constant name="struts.convention.package.locators.basePackage" value="org.reins.ssh"></constant>
+    <!-- 表示从cn包下开始加载注解 -->
+    <constant name="struts.convention.package.locators" value="org.reins.ssh"></constant>
+    <!-- 指定由spring负责action对象的创建 -->
+    <constant name="struts.objectFactory" value="spring" />
+    <!--
+        SpringBoot集成struts2这个必须要配置
+        表示不把SpringBoot内置Tomcat的类加载器排除在外
+         默认是true 将类加载器排除了所以就算上面配置
+        如果这个没有配置就算运行不报错但是Action还是访问不了
+    -->
+    <constant name="struts.convention.exclude.parentClassLoader" value="false"></constant>
+
+
+    <!-- 这一点也是，好多网上教程，居然是配置的default -->
+    <constant name="struts.convention.default.parent.package" value="convention-default" />
+
+    <!-- 这一点网上好多教程都没有，既然是注解，这个扫描包的都不加，搞毛线啊 -->
+    <constant name="struts.convention.action.packages" value="org.reins.ssh.action" />
+</struts>
